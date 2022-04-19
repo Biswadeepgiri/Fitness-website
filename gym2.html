@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function refresh(){
+              window.location.reload("Refresh")
+            }
+            window.onload = () => {
+    let button = document.querySelector("#btn");
+    button.addEventListener("click", calculateBMI);
+};
+  
+function calculateBMI() {
+    
+    let height = parseInt(document
+            .querySelector("#height").value);
+
+    let weight = parseInt(document
+            .querySelector("#weight").value);
+  
+    let result = document.querySelector("#result");
+
+    if (height === "" || isNaN(height)) 
+        result.innerHTML = "Provide a valid Height!";
+  
+    else if (weight === "" || isNaN(weight)) 
+        result.innerHTML = "Provide a valid Weight!";
+  
+    else {
+
+        let bmi = (weight / ((height * height) 
+                            / 10000)).toFixed(2);
+
+        if (bmi < 18.6) result.innerHTML =
+            `Under Weight : <span>${bmi}</span>`;
+  
+        else if (bmi >= 18.6 && bmi < 24.9) 
+            result.innerHTML = 
+                `Normal : <span>${bmi}</span>`;
+  
+        else result.innerHTML =
+            `Over Weight : <span>${bmi}</span>`;
+    }
+    
+    
+}
+window.onload = () => {
+    let button = document.querySelector("#btn2");
+    button.addEventListener("click", fatcalculator);
+};
+function fatcalculator(){
+    let height = parseInt(document
+            .querySelector("#height2").value);
+
+    let weight = parseInt(document
+            .querySelector("#weight2").value);
+    let age = parseInt(document.querySelector("#age").value);        
+  
+    let result2 = document.querySelector("#result2");
+
+    if (height === "" || isNaN(height)) 
+        result2.innerHTML = "Provide a valid Height!";
+  
+    else if (weight === "" || isNaN(weight)) 
+        result2.innerHTML = "Provide a valid Weight!";
+    
+        else {
+
+           let bmi2 = (weight / ((height * height) 
+                    / 10000)).toFixed(2);
+            let fat = ((1.20*bmi2)+(0.23*age)-16.2).toFixed(2);
+             result2.innerHTML=`Your Body Fat percentage is : <span>${fat}</span> `;
+
+}
+}
+      </script>
+      
+    <style>
+      
+        body{
+            margin: 0px;
+        padding: 0px;
+        color: white;
+        background: url("https://wallpapercave.com/wp/wp5559316.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+        
+    .left {
+        position: absolute;
+        left: 0px;
+        top: 13px;
+        display: inline-block;
+
+
+    }
+
+    .left img {
+        width: 60px;
+        padding: 0px 40px;
+
+    }
+
+    .left div {
+        text-align: center;
+        font-size: 18px;
+    }
+
+       
+    .mid {
+        display: block;
+        width: 40%;
+        margin: 12px auto;
+
+    }
+    
+    .right {
+        position: absolute;
+        right: 0px;
+        top: 13px;
+        display: inline-block;
+
+    }
+    .navbar {
+        display: inline-block;
+
+
+    }
+        #home{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+           padding-left: 300px;
+            padding-top: 100px;
+        }
+        .left a:hover,
+        .left a:active {
+        text-decoration: underline;
+        color: rgb(247, 243, 11);
+    }
+
+        #ref{
+          border: 3px solid red
+          ; 
+          color: black;
+        background-color: white;
+        border-radius: 5px;
+            
+        }
+        .cont {
+        border: 3px solid rgb(243, 16, 16);
+        margin: 150px 40px;
+        padding: 25px;
+        width: 35%;
+        border-radius: 15px;
+        background-color: black;
+        opacity: 1;
+        text-decoration: none;
+    }
+    .cont2 {
+        border: 3px solid red;
+        margin: 150px 40px;
+        padding: 25px;
+        width: 35%;
+        border-radius: 15px;
+        background-color: black;
+        opacity: 1;
+        text-decoration: none;
+    }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="left">
+            <img src="https://media.istockphoto.com/photos/white-silhouette-strenge-man-on-the-black-background-picture-id876895654?b=1&k=20&m=876895654&s=170667a&w=0&h=DGPgcTMmsTPECWzhylYXB25JeSUahl9xFyijYpoaG9E="
+                alt="">
+            <div>BISWA FITNESS</div>
+        </div>
+        <div class="mid">
+    <a id="home" href="gym1.html">Home</a>
+    </div>
+    <div class="right">
+    <input id="ref" type="button" value="Refresh" onClick="refresh(this)"></div></div>
+    <div class="cont">
+        <h1>BMI calculation</h1>
+        <p>Height (in cm)</p>
+  
+        <input type="text" id="height">
+  
+        <p>Weight (in kg)</p>
+  
+        <input type="text" id="weight">
+        
+  
+        <button id="btn">Calculate</button>
+        <div id="result"></div>
+        
+    </div>
+    <div class="cont2">
+        <h1>Body Fat Percentage Calculator</h1>
+        <p>Height(in cm)</p>
+        <input type="text" id="height2">
+        <p>Weight(in Kg)</p>
+        <input type="text" id="weight2">
+        <p>Age</p>
+        <input type="text" id="age">
+        <button id="btn2">Calculate</button>
+        <div id="result2"></div>
+        
+    </div>
+    
+</body>
+</html>
